@@ -16,6 +16,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Huudiih Burguer - O melhor hamburguer" />
+   <!-- <meta property="og:image" content="https://restaurant-lime-two.vercel.app/assets/hamb-1.png" /> --> 
+    <meta property="og:image" content="https://drive.google.com/file/d/18l8y8qZdpViJiIiUE630_dW4VIYxkbNk/view?usp=sharing" />
+    <meta property="og:discription" content="O melhor hamburguer artesanal que você vai comer na sua vida!" />
+
+    
+
     <link href="./styles/output.css" rel="stylesheet" />
     <title>HudiihBurguer - A melhor hamburgueria!</title>
   </head>
@@ -204,6 +212,17 @@
         <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
           <h2 class="text-center font-bolf text-2xl mb-2">Meu carrinho</h2>
 
+          <p class="font-bold mt-4">Nome:</p>
+          <input
+            type="text"
+            placeholder="Digite seu nome e sobrenome"
+            id="client-name"
+            class="w-full border-2 p-1 rounded my-1"
+          />
+          <p class="text-red-500 font-bold hidden" id="client-name-warn">
+            Digite seu nome
+          </p>
+
           <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
 
           <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
@@ -215,7 +234,7 @@
             id="address"
             class="w-full border-2 p-1 rounded my-1"
           />
-          <p class="text-red-500 hidden" id="address-warn">
+          <p class="text-red-500 font-bold hidden" id="address-warn">
             Digite seu endereço completo
           </p>
 

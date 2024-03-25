@@ -8,6 +8,8 @@ const closeModalBtn = document.getElementById("close-modal-btn");
 const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
+const nameInput = document.getElementById("client-name");
+const nameWarn = document.getElementById("client-name-warn");
 
 let cart = [];
 
@@ -141,6 +143,15 @@ function removeItemCart(name) {
   }
 }
 
+nameInput.addEventListener("input", function (event) {
+  let inputValue = event.target.value;
+
+  if (inputValue !== "") {
+    addressInput.classList.remove("border-red-500");
+    addressWarn.classList.add("hidden");
+  }
+});
+
 addressInput.addEventListener("input", function (event) {
   let inputValue = event.target.value;
 
@@ -166,7 +177,26 @@ checkoutBtn.addEventListener("click", function () {
     return;
   }
 
-  if (cart.length === 0) return;
+  if (cart.length === 0) {
+    Toastify({
+      text: "O carrinho esta vazio",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "#ef4444",
+      },
+    }).showToast();
+    return;
+  };
+
+  if (nameInput.value === "") {
+    nameWarn.classList.remove("hidden");
+    nameInput.classList.add("border-red-500");
+    return;
+  }
 
   if (addressInput.value === "") {
     addressWarn.classList.remove("hidden");
@@ -184,7 +214,7 @@ checkoutBtn.addEventListener("click", function () {
   const phone = "+5521991510641";
 
   window.open(
-    `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,
+    `https://wa.me/${phone}?text=${message} Name: ${nameInput.value} Endereço: ${addressInput.value}`,
     "_blank"
   );
 
