@@ -214,7 +214,7 @@ checkoutBtn.addEventListener("click", function () {
   const phone = "+5521991510641";
 
   window.open(
-    `https://wa.me/${phone}?text=${message} Name: ${nameInput.value} Endereço: ${addressInput.value}`,
+    `https://wa.me/${phone}?text=${message} Name: ${nameInput.value} | Endereço: ${addressInput.value}`,
     "_blank"
   );
 
